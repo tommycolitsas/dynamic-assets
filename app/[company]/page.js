@@ -1,11 +1,11 @@
-import { notFound } from 'next/navigation';
-import { prospects } from '../data/prospects';
-import TextToSpeechButton from '../components/TextToSpeechButton';
-import Navbar from '../components/Navbar';
-import Image from 'next/image';
+import { notFound } from "next/navigation";
+import { prospects } from "../data/prospects";
+import TextToSpeechButton from "../components/TextToSpeechButton";
+import Navbar from "../components/Navbar";
+import Image from "next/image";
 
 function createSlug(name) {
-  return name.toLowerCase().replace(/\s+/g, '');
+  return name.toLowerCase().replace(/\s+/g, "");
 }
 
 export function generateStaticParams() {
@@ -20,7 +20,7 @@ const voices = [
   { id: "onwK4e9ZLuTAKqWW03F9", name: "Daniel" },
   { id: "pFZP5JQG7iQjIQuC4Bku", name: "Lily" },
   { id: "XrExE9yKIg1WjnnlVkGX", name: "Matilda" },
-  { id: "EXAVITQu4vr4xnSDxMaL", name: "Sarah" }
+  { id: "EXAVITQu4vr4xnSDxMaL", name: "Sarah" },
 ];
 
 export default function CompanyPage({ params }) {
@@ -34,43 +34,31 @@ export default function CompanyPage({ params }) {
 
   return (
     <div>
-    <div>
-      <Navbar />
-      <div className="flex flex-col justify-center items-center h-screen">
-      <div className="flex flex-col gap-10 text-center mt-11 md:mt-0 ">
-        <h1 className=" text-xl md:text-3xl text-gray-700 font-semibold mb-3 mt-9 md:mt-0">
-          A MESSAGE FOR <span className="text-indigo-900">{prospect.companyName}</span>
-        </h1>
-        <h1 className="text-lg text-gray-400 font-medium">Click a character</h1>
+      <div>
+        <Navbar />
+        <div className="flex flex-col justify-center items-center h-screen">
+          <div className="flex flex-col gap-10 text-center mt-11 md:mt-0 ">
+            <h1 className=" text-xl md:text-3xl text-gray-700 font-semibold mb-3 mt-9 md:mt-0">
+              A MESSAGE FOR{" "}
+              <span className="text-indigo-900">{prospect.companyName}</span>
+            </h1>
+            <h1 className="text-lg text-gray-400 font-medium">
+              Click a character
+            </h1>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-9 mt-9'>
-          {voices.map((voice, index) => (
-            <TextToSpeechButton 
-              key={index}
-              text={prospect.personalizedText}
-              voiceId={voice.id}
-              voiceName={voice.name}
-            />
-          ))}
-        </div>
-
-      </div>
-    </div>
-    </div>
-      
-      
-      <div className="flex flex-col justify-center items-center h-screen">
-              <Image
-                src="/oldy.jpg"
-                alt="Description of the image"
-                width={900}
-                height={900}
-                layout="responsive"
-                className="rounded-lg"
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-9 mt-9">
+              {voices.map((voice, index) => (
+                <TextToSpeechButton
+                  key={index}
+                  text={prospect.personalizedText}
+                  voiceId={voice.id}
+                  voiceName={voice.name}
+                />
+              ))}
             </div>
-            
-
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

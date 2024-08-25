@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -15,7 +15,7 @@ export default function Navbar() {
             />
           </div>
           <div>
-            <Link 
+            <Link
               href="https://elevenlabs.io/contact-sales"
               className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-semibold py-3 px-3 rounded-full transition duration-300"
             >
