@@ -37,10 +37,14 @@ export default function CompanyPage({ params }) {
       <div>
         <Navbar />
         <div className="flex flex-col justify-center items-center h-screen">
-          <div className="flex flex-col gap-10 text-center mt-11 md:mt-0 ">
-            <h1 className=" text-xl md:text-3xl text-gray-700 font-semibold mb-3 mt-9 md:mt-0">
-              A MESSAGE FOR{" "}
-              <span className="text-indigo-900">{prospect.companyName}</span>
+          <div className="flex flex-col gap-2 md:gap-10 text-center mt-11 md:mt-0 ">
+            <h1 className="text-xl md:text-3xl text-gray-700 font-semibold mb-3 mt-12 md:mt-0">
+              <span className="mt-4 md:mt-0 block md:inline">
+                A MESSAGE FOR
+              </span>{" "}
+              <span className="block md:inline text-indigo-900">
+                {prospect.companyName}
+              </span>
             </h1>
             <h1 className="text-lg text-gray-400 font-medium">
               Click a character
