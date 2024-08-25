@@ -1,11 +1,9 @@
-
-
 'use client';
 
 import { useState } from 'react';
 import { Icons } from './icons';
 
-export default function TextToSpeechButton({ text }) {
+export default function TextToSpeechButton({ text, voiceId, voiceName }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
 
@@ -23,7 +21,7 @@ export default function TextToSpeechButton({ text }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ text, voiceId }),
       });
 
       if (!response.ok) {
@@ -48,9 +46,12 @@ export default function TextToSpeechButton({ text }) {
   return (
     <button
       onClick={handleClick}
-      className="bg-gray-100 hover:bg-gray-200 text-gray-600 font-semibold py-3 px-3 rounded"
+      className="w-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-semibold py-4 px-6 rounded flex items-center justify-start transition-colors duration-200"
     >
-      {isPlaying ? <Icons.pause/> : <Icons.play />} 
+      <div className="w-8 h-8 flex items-center justify-center mr-3">
+        {isPlaying ? <Icons.pause className="w-6 h-6" /> : <Icons.play className="w-6 h-6" />}
+      </div>
+      <span>{voiceName}</span>
     </button>
   );
 }
