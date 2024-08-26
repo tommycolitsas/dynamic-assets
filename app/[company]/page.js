@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { prospects } from "../data/prospects";
 import TextToSpeechButton from "../components/TextToSpeechButton";
 import Navbar from "../components/Navbar";
-import Image from "next/image";
+import { AudioProvider } from "../components/AudioContext";
 
 function createSlug(name) {
   return name.toLowerCase().replace(/\s+/g, "");
@@ -33,13 +33,13 @@ export default function CompanyPage({ params }) {
   }
 
   return (
-    <div>
+    <AudioProvider>
       <div>
         <Navbar />
         <div className="flex flex-col justify-center items-center h-screen">
           <div className="flex flex-col gap-2 md:gap-10 text-center mt-11 md:mt-0 ">
             <h1 className="text-xl md:text-3xl text-gray-700 font-semibold mb-3 mt-12 md:mt-0">
-              <span className="mt-4 md:mt-0 block md:inline">
+              <span className="mt-6 md:mt-0 block md:inline">
                 A MESSAGE FOR
               </span>{" "}
               <span className="block md:inline text-indigo-900">
@@ -63,6 +63,6 @@ export default function CompanyPage({ params }) {
           </div>
         </div>
       </div>
-    </div>
+    </AudioProvider>
   );
 }
