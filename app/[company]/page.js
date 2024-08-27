@@ -34,34 +34,28 @@ export default function CompanyPage({ params }) {
 
   return (
     <AudioProvider>
-      <div>
+      <div className="font-custom flex flex-col min-h-screen">
         <Navbar />
-        <div className="flex flex-col justify-center items-center h-screen">
-          <div className="flex flex-col gap-2 md:gap-10 text-center mt-11 md:mt-0 ">
-            <h1 className="text-xl md:text-3xl text-gray-700 font-semibold mb-3 mt-12 md:mt-0">
-              <span className="mt-6 md:mt-0 block md:inline">
-                A MESSAGE FOR
-              </span>{" "}
-              <span className="block md:inline text-indigo-900">
-                {prospect.companyName}
-              </span>
-            </h1>
-            <h1 className="text-lg text-gray-400 font-medium">
-              Click a character
-            </h1>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-9 mt-9">
-              {voices.map((voice, index) => (
-                <TextToSpeechButton
-                  key={index}
-                  text={prospect.personalizedText}
-                  voiceId={voice.id}
-                  voiceName={voice.name}
-                />
-              ))}
+        <main className="flex-grow flex flex-col justify-center items-center py-12 md:py-0">
+          <div className="w-full mt-16 md:mt-0 max-w-4xl px-4 md:px-0 md:max-w-3xl">
+            <div className="flex flex-col gap-6 md:gap-10 text-center">
+              <h1 className="text-lg md:text-xl text-gray-700 font-semibold leading-[1.8] md:leading-[2]">
+                {prospect.personalizedIntro}
+              </h1>
+              <h2 className="text-lg text-gray-400 mb-2">Click a character</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                {voices.map((voice, index) => (
+                  <TextToSpeechButton
+                    key={index}
+                    text={prospect.personalizedText}
+                    voiceId={voice.id}
+                    voiceName={voice.name}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </main>
       </div>
     </AudioProvider>
   );

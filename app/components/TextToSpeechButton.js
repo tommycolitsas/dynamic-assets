@@ -94,7 +94,7 @@ export default function TextToSpeechButton({ text, voiceId, voiceName }) {
           <Play className="w-6 h-6" />
         )}
       </div>
-      <span>{voiceName}</span>
+      <span className="font-medium">{voiceName}</span>
     </button>
   );
 }
