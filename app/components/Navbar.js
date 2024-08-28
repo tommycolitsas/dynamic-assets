@@ -16,7 +16,7 @@ export default function Navbar() {
           </div>
           <div>
             <Link
-              href="https://elevenlabs.io/contact-sales"
+              href="https://elevenlabs.io/app/sign-up?utm_source=publisher&utm_medium=customlanding"
               className="bg-gray-900 hover:bg-gray-600 text-gray-200 hover:text-gray-100 font-semibold py-3 px-3 rounded-full transition duration-300"
             >
               Get Access

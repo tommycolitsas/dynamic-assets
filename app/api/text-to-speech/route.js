@@ -8,7 +8,7 @@ if (!ELEVENLABS_API_KEY) {
 
 export const dynamic = "force-dynamic";
 
-// Simple in-memory cache
+// cache to make it snappy
 const cache = new Map();
 
 export async function POST(req) {
